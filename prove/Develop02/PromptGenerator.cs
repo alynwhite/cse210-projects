@@ -11,9 +11,9 @@ public class PromptGenerator{
         _prompts.Add("What was the subject of a picture I saw today? ");
         _prompts.Add("What was the strongest emotion I felt today? ");
         _prompts.Add("What was one animal I saw today? ");
-        _prompts.Add("Who was the most interesting person I interacted wsith today?");
+        _prompts.Add("Who was the most interesting person I interacted with today?");
         _prompts.Add("What was the best part of my day? ");
-        _prompts.Add("HOw did I see the hand of the Lord today? ");
+        _prompts.Add("Hw did I see the hand of the Lord today? ");
         _prompts.Add("If I had one thing I could do over today, what would it be? ");
 
         Random randomGenerator = new Random();
