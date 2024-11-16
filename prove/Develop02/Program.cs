@@ -6,4 +6,8 @@ class Program
     {
         Console.WriteLine("Hello Develop02 World!");
     }
+
+    static void DisplayMenu(){
+        Console.WriteLine("");
+    }
 }
