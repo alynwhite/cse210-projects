@@ -1,8 +1,7 @@
 using System;
 using System.IO.Enumeration;
 using System.Net;
-//using DateTime;
-
+//Improvements I completed: I added interaction with the user after saving a file or saving an entry or uploading from a file by writing to the console that the action has been done. 
 class Program
 {
     static void Main(string[] args)
@@ -55,7 +54,7 @@ class Program
         Console.Write($"{entry1._promptText}\n>");
         entry1._entryText = Console.ReadLine();
         journal1.AddEntry(entry1);
-        //entry1.Display();
+        Console.WriteLine("Saved entry");
 
     }
 
@@ -66,6 +65,6 @@ class Program
     static void SavingFile(string filename, Journal journal1)
     {
         journal1.SaveToFile(filename);
-        Console.WriteLine("Saved to File");
+        Console.WriteLine($"Saved to {filename}");
     }
 }
