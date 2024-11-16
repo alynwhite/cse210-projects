@@ -59,7 +59,10 @@ class Program
 
     }
 
-    static void LoadingFile(string filename, Journal journal1){}
+    static void LoadingFile(string filename, Journal journal1){
+        journal1.LoadFromFile(filename);
+        Console.WriteLine($"Uploaded from {filename}");
+    }
     static void SavingFile(string filename, Journal journal1)
     {
         journal1.SaveToFile(filename);
