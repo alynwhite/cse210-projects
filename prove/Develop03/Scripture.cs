@@ -9,7 +9,6 @@ public class Scripture{
         _reference = reference;
         string[] split_str = text.Split(' ');
         foreach(string c in split_str){
-            Console.WriteLine(c);
             Words w1 = new Words(c);
             _words.Add(w1);
         }
@@ -48,5 +47,8 @@ public class Scripture{
         else{
             return false;
         }
+    }
+    public int GetWordsLength(){
+        return _words.Count;
     }
 }
