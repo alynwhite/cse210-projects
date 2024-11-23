@@ -49,6 +49,19 @@ public class Scripture{
         }
     }
     public int GetWordsLength(){
-        return _words.Count;
+        int count_length = 0;
+        for(int i = 0; i<_words.Count; i++){
+            if (_words[i].IsHidden() == false){
+                count_length ++;
+            }
+        }
+        return count_length;
     }
+
+    public void ClearWordsSlate(){
+        for(int i = 0; i<_words.Count; i++){
+            _words[i].Show();
+        }
+    }
+  
 }
