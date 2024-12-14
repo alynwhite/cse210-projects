@@ -37,10 +37,15 @@ public class Activity{
 
     public void ShowCountDown(int seconds){
         for(int i = seconds; i > 0; i--){
-            if(seconds > 9){
+            if(i > 9){
                 Console.Write(i);
                 Thread.Sleep(1000);
                 Console.Write("\b\b \b\b");
+            }
+            else if(i == 9){
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.Write("\b \b\b");
             }
             else{
                 Console.Write(i);

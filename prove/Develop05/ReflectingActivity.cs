@@ -13,9 +13,18 @@ public class RelflectingActivity : Activity{
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(GetDuration());
         DateTime currentTime = DateTime.Now;
+        Console.WriteLine("Get Ready...");
+        ShowSpinner(4);
+        Console.WriteLine("Consider the following prompt: ");
         DisplayPrompt();
+        Console.Write("You may begin in: ");
+        ShowSpinner(5);
         while(currentTime < futureTime){
+            // Console.Write("---");
+            Console.Clear();
             DisplayQuestions();
+            ShowSpinner(10);
+            currentTime = DateTime.Now;
         }
         DisplayEndingMessage();
     }
@@ -33,10 +42,10 @@ public class RelflectingActivity : Activity{
     }
 
     public void DisplayPrompt(){
-        Console.WriteLine(GetRandomPrompt());
+        Console.WriteLine($"--- {GetRandomPrompt()} ---");
     }
 
     public void DisplayQuestions(){
-        Console.WriteLine(GetRandomQuestion());
+        Console.Write($"> {GetRandomQuestion()}");
     }
 }

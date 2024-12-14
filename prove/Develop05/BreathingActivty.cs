@@ -7,14 +7,18 @@ public class BreathingActivity : Activity{
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(GetDuration());
         DateTime currentTime = DateTime.Now;
+        Console.Write("Get Ready...");
+        ShowSpinner(3);
+        Console.Clear();
         while(currentTime < futureTime){
-            Console.Write($"Breathe In ...");
+            Console.Write($"\nBreathe In ...");
             ShowCountDown(5);
     
             Console.Write("\nBreath out...");
             ShowCountDown(5);
             currentTime = DateTime.Now;
         }
+        Console.Clear();
         DisplayEndingMessage();
     }
 }

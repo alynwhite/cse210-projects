@@ -17,8 +17,12 @@ public class ListingActivity : Activity{
         DateTime currentTime = DateTime.Now;
         GetRandomPrompt();
         while(currentTime < futureTime){
-            GetListFromUser();
+            ShowCountDown(10);
+            Console.Write("Please list items here, press enter on empty line once finished: \n>");
+            currentTime = DateTime.Now;
         }
+        _count = GetListFromUser().Count;
+        Console.WriteLine($"You wrote {_count} in your list today.");
         DisplayEndingMessage();
     }
 
@@ -33,6 +37,7 @@ public class ListingActivity : Activity{
         List<string> userInput = new List<string>();
         while((line = Console.ReadLine()) != null && line != ""){
             userInput.Add(line);
+            Console.Write("> ");
         }
         return userInput;
     }
