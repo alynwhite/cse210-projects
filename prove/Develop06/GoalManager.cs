@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Security.Cryptography.X509Certificates;
 
 public class GoalManager
@@ -28,6 +29,7 @@ public class GoalManager
         bool go = true;
         while (go)
         {
+            DisplayPlayerInfo();
             DisplayMenu();
             string user_input = Console.ReadLine();
             if (user_input == "1" || user_input == "Create")
@@ -59,32 +61,41 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.Write($"Current Score: {_score}");
+        Console.WriteLine($"Current Score: {_score}");
     }
     public void ListGoalNames()
     {
-        for (int i = 0; i < _goals.Count; i++)
-        {
-            if (_goals[i].IsComplete() != true)
+        if(_goals.Count != 0){
+            for (int i = 0; i < _goals.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+                if (_goals[i].IsComplete() != true)
+                {
+                    Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+                }
             }
         }
+        
     }
     public void ListGoalDetails()
     {
-        for (int i = 0; i < _goals.Count; i++)
-        {
-            if (_goals[i].IsComplete())
-            {
-                Console.WriteLine($"[X] {_goals[i].GetName()} ({_goals[i].GetDescription()})");
-            }
-            else
-            {
-                Console.WriteLine($"[ ] {_goals[i].GetName()} ({_goals[i].GetDescription()})");
-            }
-
+        if(_goals.Count < 1){
+            Console.WriteLine("You have no goals currently.");
         }
+        else{
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                if (_goals[i].IsComplete())
+                {
+                    Console.WriteLine($"[X] {_goals[i].GetName()} ({_goals[i].GetDescription()})");
+                }
+                else
+                {
+                    Console.WriteLine($"[ ] {_goals[i].GetName()} ({_goals[i].GetDescription()})");
+                }
+
+            }
+        }
+        
     }
     public void CreateGoal()
     {
@@ -202,7 +213,7 @@ public class GoalManager
             if (goal_object == "SimpleGoal")
             {
                 SimpleGoal s2 = new SimpleGoal(shortname, description, points);
-                if (completedStatus == "true")
+                if (completedStatus == "True")
                 {
                     s2.RecordEvent();
                 }
