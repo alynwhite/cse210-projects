@@ -17,7 +17,6 @@ public abstract class Goal{
     public string GetDescription(){
         return _description;
     }
-
     public int GetPoints(){
         int p = int.Parse(_points);
         return p;
