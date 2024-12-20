@@ -10,10 +10,19 @@ public class ChecklistGoal : Goal
         _target = target;
         _bonus = bonus;
     }
-
+    public int GetBonus(){
+        return _bonus;
+    }
     public override void RecordEvent()
     {
-        _amountCompleted += 1;
+        if(_amountCompleted + 1 < _target){
+            _amountCompleted += 1;
+            }
+        else{
+            _amountCompleted ++;
+            
+            SetPoints(_bonus.ToString());
+        }
     
     }
     public override bool IsComplete()
@@ -25,10 +34,9 @@ public class ChecklistGoal : Goal
             return false;
         }
     }
-
-    public override string GetDetailsSring()
+    public override string GetDetailsString()
     {
-        return $"[{_amountCompleted}/{_target}] {GetStringRepresentation()}: {GetName()} ({GetDescription()})";
+        return $"{GetName()}|{GetDescription()}|{IsComplete()}|{GetPoints()}|{_target}|{_amountCompleted}|{_bonus}";
     }
 
     public override string GetStringRepresentation()

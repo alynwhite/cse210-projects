@@ -1,0 +1,3 @@
+5000
+EternalGoal~Forever Learn|Learn continually|False|60
+SimpleGoal~Test Goals|Test my program and see if it works|True|5000

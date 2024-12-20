@@ -18,14 +18,18 @@ public abstract class Goal{
         return _description;
     }
 
-    public string GetPoints(){
-        return _points;
+    public int GetPoints(){
+        int p = int.Parse(_points);
+        return p;
+    }
+    public void SetPoints(string points){
+        _points = points;
     }
 
     public abstract void RecordEvent();
     public abstract bool IsComplete();
-    public virtual string GetDetailsSring(){
-        return $"{_shortname}({_description})";
+    public virtual string GetDetailsString(){
+        return $"{_shortname}|{_description}|{IsComplete()}|{_points}";
     }
     public abstract string GetStringRepresentation();
 }

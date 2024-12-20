@@ -44,6 +44,6 @@ class Program
         foreach (string m in _menu){
             Console.WriteLine($"\t{m}");
         }
-        Console.Write("Select a choice form teh menu: ");
+        Console.Write("Select a choice form the menu: ");
     }
 }
