@@ -74,6 +74,9 @@ public class GoalManager
                 }
             }
         }
+        else{
+            Console.WriteLine("You currently have no goals to record an event on.");
+        }
         
     }
     public void ListGoalDetails()
